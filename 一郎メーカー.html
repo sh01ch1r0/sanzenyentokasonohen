@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一郎メーカー</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #syntax {
+            font-size: 120px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            font-size: 24px;
+            padding: 15px 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>一郎メーカー</h1>
+        <div id="syntax"></div>
+        <button onclick="generateSyntax()">生成する</button>
+    </div>
+
+    <script>
+        // 大量の難読漢字リスト
+        const kanjiList = [
+            '鱗', '膿', '鶏', '鮮', '鱒', '鯉', '鯛',
+            '鰐', '鰯', '鱶', '鱸', '鱧', '鱚', '鱠', '鱧',
+            '髭', '魁', '魅', '魏', '魔', '魑',
+            '鰆', '鰹', '鰐', '鰻', '鱸', '鮑',
+            '嬉', '塵', '壷', '幽', '彩', '彰', '暁', '晃', '晨', '曙',
+            '瞳', '睦', '綾', '葵', '葡', '蒼', '蔽', '詠', '該', '醇',
+            '醜', '醸', '錦', '鍵', '鎌', '阿', '陀', '隠', '隷', '霞',
+            '靖', '靴', '須', '顎', '顔', '顕', '颯', '飴', '餌', '饅',
+            '馨', '馳', '馴', '駄', '駒', '駿', '騎', '騒', '騰', '驕',
+            '魁', '魂', '魅', '魍', '魎', '魏', '魑', '魔', '魘', '魚',
+            // 以下、さらに大量の漢字を追加
+        ];
+
+        // 初期表示の一郎を生成
+        const initialKanji = kanjiList[Math.floor(Math.random() * kanjiList.length)];
+        document.getElementById('syntax').textContent = `${initialKanji}一郎`;
+
+        function generateSyntax() {
+            // ランダムな漢字を選択
+            const randomKanji = kanjiList[Math.floor(Math.random() * kanjiList.length)];
+
+            // 一郎の文字列を生成
+            const syntax = `${randomKanji}一郎`;
+
+            // 生成した一郎を表示
+            document.getElementById('syntax').textContent = syntax;
+        }
+    </script>
+</body>
+</html>
